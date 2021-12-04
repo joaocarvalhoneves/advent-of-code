@@ -38,26 +38,11 @@ void draw() {
     b[i].check(bets);
     b[i].checkwinLin();
     b[i].checkwinCol();
-    
   }
   fill(0);
   textSize(40);
   text(bets.get(b[0].getSize()-1), width-40, height-40);
   noFill();
-  
-    for (int i = 0; i < numbingos; i++) {
-      if(b[i].getVictory()){
-        closed++;
-        firststar = b[i].sumNotSel() * int(bets.get(b[0].getSize()-1));
-        if(closed == 98)
-        secondstar = b[i].sumNotSel();
-      }
-    }
-    println(closed);
-    println("first * " + firststar);
-    
-    println("second * " + secondstar);
-    closed = 0;
 }
 
 void mousePressed() {

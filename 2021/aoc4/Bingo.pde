@@ -30,10 +30,11 @@ class Bingo {
         for (int k = 0; k < 10; k++) {
           if (x > 1520 * k) {
             if(victory){
-    fill(0, 255, 0, 100);
+    fill(0, 255, 0, 10);
     
     rectMode(CENTER);
     rect(x+30 - gap, y+30 + space, 100, 100);
+    noFill();
     }
             space = 95 * k;
             gap = 1520 * k;
