@@ -1,56 +1,36 @@
 String lines [];
-StringList spanlist = new StringList();
-ArrayList <Fish> f1 = new ArrayList();
-ArrayList <Fish> f2 = new ArrayList();
-ArrayList <Fish> f3 = new ArrayList();
+StringList spanList = new StringList();
+long fishNum [] = new long [10];
 int day;
+long totalFish;
 
 void setup() {
-  size(800, 600);
+  size(300, 300);
   lines = loadStrings("list.txt");
-  spanlist.append(split(lines[0], ','));
-  for (int i = 0; i < spanlist.size(); i++) {
-    f1.add(new Fish(Integer.valueOf(spanlist.get(i))));
+  spanList.append(split(lines[0], ','));
+  for (int i = 0; i < spanList.size(); i++) {
+    fishNum[Integer.valueOf(spanList.get(i))]++;
   }
-  println(sqrt(26));
- 
 }
 
-void draw(){
+void draw() {
+  background(0);
+  for (int i = 0; i < fishNum.length-1; i++) {
+  text("second * " + fishNum[i] + " on day " + day, 20, 25+20*i);
+}
+text(totalFish, 20, 25+250);
 }
 
 void mousePressed() {
+  totalFish = 0;
   day++;
-  for (int i = f1.size()-1; i >= 0; i--) {
-    f1.get(i).behaviour();
+  fishNum[9] = fishNum[0];
+  for (int i = 0; i < fishNum.length-1; i++) {
+    fishNum[i] = fishNum[i+1];
+    if (i == 6) fishNum[i]+= fishNum[9];
+    totalFish+=fishNum[i];
   }
   
-  if(day == 120)
   
-  println("first * " + f1.size() + " on day " + day);
-}
 
-class Fish {
-  int span;
- // int x;
-  //int y;
-
-  Fish(int span) {
-    this.span = span;
-  //  x = int(random(width));
-   // y = int(random(height));
-  }
-
-  void show() {
-    fill(255, 255, 0);
-    noStroke();
-  //  ellipse(x, y, 4, 1);
-  }
-
-  void behaviour() {
-    if (span == 0) {
-      span = 6;
-      f1.add(new Fish(8));
-    } else if (span > 0) span--;
-  }
 }
