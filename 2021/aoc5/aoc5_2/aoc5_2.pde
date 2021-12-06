@@ -13,7 +13,6 @@ void setup() {
   lines = loadStrings("list.txt");
   img = createImage(width, height, ARGB);
 
-
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
       img.set(i, j, 255);
