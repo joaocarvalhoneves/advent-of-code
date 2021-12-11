@@ -40,11 +40,6 @@ void mousePressed() {
   for (int r = 0; r < 10; r++) {
     for (int c = 0; c < 10; c++) {
       o[r][c].resetF();
-    }
-  }
-
-  for (int r = 0; r < 10; r++) {
-    for (int c = 0; c < 10; c++) {
       o[r][c].energy();
     }
   }
@@ -90,11 +85,8 @@ void mousePressed() {
   }
   flashed.clear();
 
-  println("first * " + flashednum);
-
-  if (sim == 100) {
-    println("second * " + step);
-  }
+  if (step == 100) println("first * " + flashednum);
+  if (sim == 100) println("second * " + step);
 }
 
 
