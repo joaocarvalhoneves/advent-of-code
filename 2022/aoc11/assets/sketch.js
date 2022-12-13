@@ -7,38 +7,28 @@ function preload() {
 }
 
 function setup() {
-
     // APES START
     var apeNum = 0;
 
     for (let i = 0; i < loadString.length; i += 6) {
-
-        // ITEMS
+        // PARSING
         let items = [];
         let itemsString = split(loadString[i + 1], ' ');
-
         for (let j = 4; j < itemsString.length; j++) {
             items.push((itemsString[j].substring(0, 2)));
         }
-
-        // OPERATION
         let operation = split(loadString[i + 2], '= ')[1];
-
-        // DIVISIBLE
         let divisible = split(loadString[i + 3], ' ');
         divisible = int(divisible[divisible.length - 1]);
-
-        // THROWS
         let throw1 = split(loadString[i + 4], ' ');
         let throw2 = split(loadString[i + 5], ' ');
         throw1 = int(throw1[throw1.length - 1]);
         throw2 = int(throw2[throw2.length - 1]);
-
         monkey.push(new Monkey(items, divisible, operation, throw1, throw2));
         apeNum++;
     }
 
-    // COMPRESS WORRY LVL
+    // COMPRESS WORRY
     compress = 1;
     for (let i = 0; i < monkey.length; i++) {
         compress *= monkey[i].divisible;
