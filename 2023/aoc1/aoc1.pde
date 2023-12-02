@@ -4,7 +4,6 @@ IntList newCalibration = new IntList();
 int star1 = 0;
 int star2 = 0;
 String num [] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-int numm [] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 loadString = loadStrings("data.txt");
 
@@ -28,7 +27,7 @@ for (int i = 0; i < loadString.length; i++) {
       if (j+num[k].length() <= loadString[i].length()) {
         if (loadString[i].substring(j, j + num[k].length()).equals(num[k])) {
           firstL.append(j);
-          firstL.append(numm[k]);
+          firstL.append(k);
         }
       }
     }
@@ -47,7 +46,7 @@ for (int i = 0; i < loadString.length; i++) {
       if (j+num[k].length() <= loadString[i].length()) {
         if (loadString[i].substring(j, j + num[k].length()).equals(num[k])) {
           lastL.append(j);
-          lastL.append(numm[k]);
+          lastL.append(k);
         }
       }
     }
